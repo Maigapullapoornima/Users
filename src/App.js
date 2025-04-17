@@ -1,11 +1,12 @@
-import logo from './logo.svg';
-import './App.css';
-import axios, { Axios } from 'axios';
+import axios from 'axios';
 import React from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography'
+import { Grid } from '@mui/material';
+import './App.css';
+
 
 function App() {
   const [users, setUsers] = React.useState([]);
@@ -20,9 +21,10 @@ function App() {
     getDetails()
   }, [])
   return (
-    <div className="App" sx={{display: "flex", margin: "20px"}}>
-      {users.map((row) => 
-        <Card sx={{ maxWidth: 230, margin:"20px" }}>
+    <div className="App">
+      
+      {users.map((row, index) => 
+        <Card sx={{ maxWidth: 230, margin:"20px" }} key={index}>
         <CardMedia
           sx={{ height: 140 }}
           image={row.avatar}
